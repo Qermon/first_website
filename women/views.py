@@ -45,7 +45,7 @@ logger = logging.getLogger(__name__)
 
 class Search(ListView):
     template_name = 'women/menu.html'
-    context_object_name = 'dishes'
+    context_object_name = 'dishes'git init
 
     def get_queryset(self):
         query = self.request.GET.get('q')
