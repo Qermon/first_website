@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+
+    <header class="site-header site-contact-header">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-10 col-12 mx-auto">
+                    <h1 class="text-white">Reviews</h1>
+
+                    <strong class="text-white">We are happy to get in touch with you</strong>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="overlay"></div>
+    </header>
+    <section class="contact section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="mb-4">Leave a review</h2>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <form class="custom-form contact-form row" method="post" role="form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="col-lg-5 col-12 ms-auto">
+                            <button type="submit" class="form-control">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mt-5">
+                    <h2 class="mb-4">Customer Reviews</h2>
+                    {% for review in reviews %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-text">{{ review.author.username }}</h4>
+                            <p class="card-text">{{ review.message }}</p>
+                            <h4 class="card-text">
+                                {% for i in review.RATING_CHOICES %}
+                                    {% if i.0 == review.rating %}
+                                        {{ i.1 }}
+                                    {% endif %}
+                                {% endfor %}
+                            </h4>
+                            {% if review.image %}
+                                <img src="{{ review.image.url }}" class="img-fluid mt-3" alt="Review Image">
+                            {% endif %}
+                            {% if request.user == review.author %}
+                                <form method="post" action="" class="mt-3">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="review_id" value="{{ review.id }}">
+                                    <button type="submit" name="delete" class="btn btn-danger">Delete</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="col-12">
+        <h4 class="mt-5 mb-4">121 Einstein Loop N, Bronx, NY 10475, United States</h4>
+
+        <div class="google-map pt-3">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14920.891757756479!2d-73.83496372506556!3d40.8623107607295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c28cbc17f4a0c3%3A0x9ae0f1e804a817d!2s121%20Einstein%20Loop%20N%2C%20Bronx%2C%20NY%2010475%2C%20USA!5e0!3m2!1sen!2sth!4v1650470337727!5m2!1sen!2sth" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    </div>
+    </div>
+</section>
+
+</main>
+
+{% endblock %}

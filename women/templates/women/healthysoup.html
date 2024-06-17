@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="menu-button-wrap">
+    <a class="btn btn-primary btn-lg" href="/menu/">Menu</a>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="menu-thumb">
+            <div class="menu-image-wrap">
+                <img src={% static "images/lunch/farhad-ibrahimzade-D5c9ZciQy_I-unsplash.jpg" %} class="img-fluid menu-image" alt="">
+            </div>
+            <div class="menu-info d-flex flex-wrap align-items-center">
+                <h4 class="mb-0">Healthy Soup</h4>
+                <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>34.20</span>
+                <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                    <h6 class="reviews-text mb-0 me-3">3/5</h6>
+                    <div class="reviews-stars">
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                    </div>
+                    <p class="reviews-text mb-0 ms-4">64 Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+        <div class="menu-description">
+            <h4 class="text-dark">Healthy Soup</h4>
+            <p class="text-dark">
+                Our healthy soup is a nourishing blend of fresh vegetables and flavorful herbs, carefully crafted to promote wellness and vitality. Bursting with natural goodness and vibrant flavors, this soup is the perfect choice for those seeking a nutritious and satisfying meal. Here are some key features and benefits of our healthy soup:
+            </p>
+            <ul class="text-dark">
+                <li>Fresh Ingredients: Made with a variety of fresh vegetables, herbs, and spices, providing essential vitamins and minerals.</li>
+                <li>Low-Calorie: A light and refreshing option, perfect for those looking to maintain a healthy diet and manage their weight.</li>
+                <li>Immune-Boosting: Packed with antioxidants and nutrients to support a strong and resilient immune system.</li>
+                <li>Detoxifying: Helps to cleanse the body and eliminate toxins, promoting overall health and well-being.</li>
+                <li>Delicious Flavor: A satisfying and flavorful soup that can be enjoyed on its own or as a starter to any meal.</li>
+            </ul>
+            <p class="text-dark">
+                In summary, our healthy soup is a fantastic choice for those looking for a delicious and nutritious meal. Its fresh ingredients, low-calorie nature, and immune-boosting properties make it an ideal option for anyone seeking to maintain their health and well-being.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

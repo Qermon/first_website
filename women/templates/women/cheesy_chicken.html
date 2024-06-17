@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="menu-button-wrap">
+    <a class="btn btn-primary btn-lg" href="/menu/">Menu</a>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="menu-thumb">
+            <div class="menu-image-wrap">
+                <img src={% static "images/dinner/cheesy-chicken.jpg" %} class="img-fluid menu-image" alt="">
+            </div>
+            <div class="menu-info d-flex flex-wrap align-items-center">
+                <h4 class="mb-0">Cheesy Chicken</h4>
+                <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>84.00</span>
+                <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                    <h6 class="reviews-text mb-0 me-3">3.9/5</h6>
+                    <div class="reviews-stars">
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                    </div>
+                    <p class="reviews-text mb-0 ms-4">72 Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+        <div class="menu-description">
+            <h4 class="text-dark">Cheesy Chicken</h4>
+            <p class="text-dark">
+                Our Cheesy Chicken is a delightful dish that combines succulent chicken breasts with a rich and creamy cheese sauce. Perfect for cheese lovers, this dish offers a satisfying and flavorful dining experience. Here's what makes our Cheesy Chicken special:
+            </p>
+            <ul class="text-dark">
+                <li>Premium Chicken: Tender and juicy chicken breasts cooked to perfection.</li>
+                <li>Rich Cheese Sauce: Smothered in a luscious blend of melted cheeses for an indulgent flavor.</li>
+                <li>Perfect Seasoning: Expertly seasoned to enhance the natural taste of the chicken and cheese.</li>
+                <li>Comfort Food: A warm and comforting dish that's perfect for any occasion.</li>
+                <li>Ideal Pairings: Best enjoyed with our selection of sides, including mashed potatoes and steamed vegetables.</li>
+            </ul>
+            <p class="text-dark">
+                In summary, our Cheesy Chicken is a must-try for anyone looking for a hearty and delicious meal. The combination of tender chicken and creamy cheese sauce makes it a standout dish that will leave you coming back for more.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

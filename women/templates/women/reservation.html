@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+    <header class="site-header site-contact-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-12 mx-auto">
+                    <h1 class="text-white">Reservation</h1>
+                    <strong class="text-white">You can reserve a table here</strong>
+                </div>
+            </div>
+        </div>
+        <div class="overlay"></div>
+    </header>
+    <section class="contact section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="mb-4">Reserve</h2>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <form id="reservationForm" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="col-lg-5 col-12 ms-auto">
+                            <button type="submit" class="form-control">Reservation</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-12 mt-5">
+                    <h2 class="mb-4">Your Reservations</h2>
+                    {% for reservation in reservations %}
+                        <div class="reservation-item d-flex align-items-center mb-3 p-2 border">
+                            <div class="reservation-details flex-grow-1">
+                                <p>Date: {{ reservation.date }} Time: {{ reservation.time }} Table: {{ reservation.table_number }}</p>
+                            </div>
+                            {% if request.user == reservation.user %}
+                                <form method="post" action="" class="d-inline-block ms-3">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="reservation_id" value="{{ reservation.id }}">
+                                    <button type="submit" name="delete" class="btn btn-danger">Delete</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("id_date").value = today;
+    });
+</script>
+
+{% endblock %}

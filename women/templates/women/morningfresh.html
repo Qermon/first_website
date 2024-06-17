@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="menu-button-wrap">
+    <a class="btn btn-primary btn-lg"  href="/menu/">Menu</a>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-12">
+            <div class="menu-thumb">
+                <div class="menu-image-wrap">
+                    <a href="/morning-fresh/">
+                        <img src="{% static "images/breakfast/brett-jordan-8xt8-HIFqc8-unsplash.jpg" %}" class="img-fluid menu-image" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+            <div class="menu-description">
+                <h4 class="text-dark">Morning Fresh dishwashing liquid</h4>
+                <p class="text-dark">
+                    Morning Fresh dishwashing liquid is a popular cleaning product known for its effectiveness in cutting through grease and grime, making dishwashing tasks easier and more efficient. Designed with powerful cleaning agents, Morning Fresh ensures a sparkling clean finish on all types of dishware, glassware, and cookware. Here are some key features and benefits of Morning Fresh dishwashing liquid:
+                </p>
+                <ul class="text-dark">
+                    <li>Superior Grease Cutting: Formulated to tackle tough grease and stubborn food residues, ensuring that dishes are left spotlessly clean.</li>
+                    <li>Economical: A little goes a long way, making it a cost-effective option for households.</li>
+                    <li>Environmentally Friendly: Biodegradable formula that's gentle on the environment.</li>
+                    <li>Skin-Friendly: Contains ingredients that are gentle on hands, preventing dryness and irritation.</li>
+                    <li>Pleasant Fragrances: Available in a variety of pleasant scents to leave dishes smelling fresh.</li>
+                </ul>
+                <p class="text-dark">
+                    In summary, Morning Fresh dishwashing liquid is a highly effective, economical, and environmentally friendly option for keeping your kitchenware clean and sparkling, with added benefits of pleasant fragrances and skin-friendly formulations.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

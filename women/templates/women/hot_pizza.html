@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="menu-button-wrap">
+    <a class="btn btn-primary btn-lg" href="/menu/">Menu</a>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="menu-thumb">
+            <div class="menu-image-wrap">
+                <img src={% static "images/breakfast/Pizza.jpg" %} class="img-fluid menu-image" alt="Hot Pizza">
+            </div>
+            <div class="menu-info d-flex flex-wrap align-items-center">
+                <h4 class="mb-0">Hot Pizza</h4>
+                <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>24.20</span>
+                <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                    <h6 class="reviews-text mb-0 me-3">3.7/5</h6>
+                    <div class="reviews-stars">
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                    </div>
+                    <p class="reviews-text mb-0 ms-4">16 Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+        <div class="menu-description">
+            <h4 class="text-dark">Hot Pizza</h4>
+            <p class="text-dark">
+                Our Hot Pizza is a savory delight featuring a crispy, thin crust topped with a generous portion of melted mozzarella cheese, flavorful tomato sauce, and your choice of delicious toppings. Here's what makes our Hot Pizza special:
+            </p>
+            <ul class="text-dark">
+                <li>Crispy Crust: Baked to perfection, our crust offers a satisfying crunch with every bite.</li>
+                <li>Fresh Ingredients: We use only the finest ingredients, from our locally sourced tomatoes to our premium mozzarella.</li>
+                <li>Customizable Toppings: Choose from a variety of toppings to create your perfect pizza, from classic pepperoni to gourmet options.</li>
+                <li>Satisfaction Guaranteed: Loved by pizza enthusiasts for its taste, quality, and generous toppings.</li>
+                <li>Perfect for Sharing: Whether for a family dinner or a casual gathering with friends, our Hot Pizza is always a crowd-pleaser.</li>
+            </ul>
+            <p class="text-dark">
+                In summary, our Hot Pizza is a flavorful choice that combines quality ingredients with a crispy crust and mouth-watering toppings, making it an irresistible option for any pizza lover.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

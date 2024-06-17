@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="menu-button-wrap">
+    <a class="btn btn-primary btn-lg" href="/menu/">Menu</a>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="menu-thumb">
+            <div class="menu-image-wrap">
+                <img src={% static "images/breakfast/mustard.jpg" %} class="img-fluid menu-image" alt="Fried Chicken">
+            </div>
+            <div class="menu-info d-flex flex-wrap align-items-center">
+                <h4 class="mb-0">Fried Chicken</h4>
+                <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>44.80</span>
+                <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                    <h6 class="reviews-text mb-0 me-3">4.7/5</h6>
+                    <div class="reviews-stars">
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                    </div>
+                    <p class="reviews-text mb-0 ms-4">26 Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+        <div class="menu-description">
+            <h4 class="text-dark">Fried Chicken</h4>
+            <p class="text-dark">
+                Our Fried Chicken is a mouth-watering dish featuring crispy, golden-brown chicken pieces seasoned to perfection and served with your choice of sides. Here's what makes our Fried Chicken special:
+            </p>
+            <ul class="text-dark">
+                <li>Crispy Coating: Our chicken is coated in a seasoned batter that fries up to a perfect crunch.</li>
+                <li>Juicy Meat: Tender chicken meat that remains moist and flavorful inside the crispy exterior.</li>
+                <li>Choice of Sides: Pair your fried chicken with classic sides like mashed potatoes, coleslaw, or cornbread.</li>
+                <li>Popular Choice: Loved by our customers for its crispy texture and delicious flavor.</li>
+                <li>Perfect for Any Occasion: Whether it's a quick lunch or a family dinner, our Fried Chicken is always a hit.</li>
+            </ul>
+            <p class="text-dark">
+                In summary, our Fried Chicken offers a delightful combination of crispy texture, juicy meat, and savory seasoning, making it a favorite choice for any meal.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

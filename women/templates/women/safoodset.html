@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="menu-button-wrap">
+    <a class="btn btn-primary btn-lg" href="/menu/">Menu</a>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="menu-thumb">
+            <div class="menu-image-wrap">
+                <img src={% static "images/dinner/farhad-ibrahimzade-ZipYER3NLhY-unsplash.jpg" %} class="img-fluid menu-image" alt="">
+            </div>
+            <div class="menu-info d-flex flex-wrap align-items-center">
+                <h4 class="mb-0">Seafood Set</h4>
+                <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>86</span>
+                <del class="ms-4"><small>$</small>124</del>
+                <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                    <h6 class="reviews-text mb-0 me-3">3/5</h6>
+                    <div class="reviews-stars">
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                    </div>
+                    <p class="reviews-text mb-0 ms-4">44 Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+        <div class="menu-description">
+            <h4 class="text-dark">Seafood Set</h4>
+            <p class="text-dark">
+                Our seafood set is a premium selection of the freshest ocean delights, carefully curated to offer a diverse and exquisite dining experience. Perfect for seafood lovers and special occasions, this set includes a variety of high-quality seafood items that are sure to impress. Here are some key features and benefits of our seafood set:
+            </p>
+            <ul class="text-dark">
+                <li>Freshness Guaranteed: Sourced daily from trusted suppliers to ensure the freshest and finest quality seafood.</li>
+                <li>Diverse Selection: Includes a variety of seafood such as shrimp, scallops, and fish fillets, providing a rich and flavorful experience.</li>
+                <li>Nutritious: Packed with essential nutrients, including omega-3 fatty acids, vitamins, and minerals.</li>
+                <li>Versatile Cooking: Perfect for grilling, baking, steaming, or sautéing, allowing for a wide range of culinary creations.</li>
+                <li>Sustainable Sourcing: Responsibly sourced to support sustainable fishing practices and protect marine ecosystems.</li>
+            </ul>
+            <p class="text-dark">
+                In summary, our seafood set is a superior choice for those seeking an extraordinary dining experience. Its unparalleled freshness, diverse selection, and nutritional benefits make it a standout option for any meal, offering a truly gourmet taste that is sure to impress.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

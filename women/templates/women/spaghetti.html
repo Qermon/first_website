@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="menu-button-wrap">
+    <a class="btn btn-primary btn-lg" href="/menu/">Menu</a>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="menu-thumb">
+            <div class="menu-image-wrap">
+                <img src={% static "images/breakfast/spaghetti.jpg" %} class="img-fluid menu-image" alt="Spaghetti">
+            </div>
+            <div class="menu-info d-flex flex-wrap align-items-center">
+                <h4 class="mb-0">Spaghetti</h4>
+                <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>14.90</span>
+                <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                    <h6 class="reviews-text mb-0 me-3">4.3/5</h6>
+                    <div class="reviews-stars">
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                    </div>
+                    <p class="reviews-text mb-0 ms-4">46 Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+        <div class="menu-description">
+            <h4 class="text-dark">Spaghetti</h4>
+            <p class="text-dark">
+                Our Spaghetti is a classic Italian pasta dish featuring al dente pasta tossed in a rich tomato sauce, infused with garlic and herbs, and topped with grated Parmesan cheese. Here's what makes our Spaghetti special:
+            </p>
+            <ul class="text-dark">
+                <li>Authentic Ingredients: Made with imported Italian pasta and fresh, locally-sourced tomatoes.</li>
+                <li>Flavorful Sauce: Our tomato sauce is simmered to perfection, ensuring a burst of flavors in every bite.</li>
+                <li>Perfectly Cooked Pasta: Cooked al dente for that ideal texture that Italians love.</li>
+                <li>Garnished with Cheese: Finished with a generous sprinkle of Parmesan cheese for added richness.</li>
+                <li>Popular Dish: A favorite among pasta enthusiasts for its simplicity and delicious taste.</li>
+            </ul>
+            <p class="text-dark">
+                In summary, our Spaghetti is a beloved Italian classic that delivers on taste and authenticity. Whether you're craving a comforting meal or exploring Italian cuisine, our Spaghetti will satisfy your appetite.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

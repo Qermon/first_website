@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="menu-button-wrap">
+    <a class="btn btn-primary btn-lg"  href="/menu/">Menu</a>
+    </div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="menu-thumb">
+            <img src={% static "images/dinner/farhad-ibrahimzade-isHUj3N0194-unsplash.jpg" %} class="img-fluid menu-image" alt="">
+            <div class="menu-info d-flex flex-wrap align-items-center">
+                <h4 class="mb-0">Salmon Set</h4>
+                <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>60</span>
+                <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                    <h6 class="reviews-text mb-0 me-3">3/5</h6>
+                    <div class="reviews-stars">
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                    </div>
+                    <p class="reviews-text mb-0 ms-4">76 Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+        <div class="menu-description">
+            <h4 class="text-dark">Salmon Set</h4>
+            <p class="text-dark">
+                Our salmon set offers a delightful culinary experience featuring premium salmon fillets accompanied by a selection of complementary sides. Bursting with flavor and nutritional goodness, this set is perfect for seafood enthusiasts and health-conscious diners alike. Here are some key features and benefits of our salmon set:
+            </p>
+            <ul class="text-dark">
+                <li>Premium Salmon: Sourced from the finest waters, our salmon fillets are fresh, succulent, and packed with omega-3 fatty acids.</li>
+                <li>Complementary Sides: Includes a variety of sides such as roasted vegetables, quinoa salad, and lemon wedges for a balanced and satisfying meal.</li>
+                <li>Healthy and Nutritious: Salmon is known for its high protein content, omega-3 fatty acids, and essential vitamins and minerals, promoting heart health and overall well-being.</li>
+                <li>Versatile: Perfectly suited for grilling, baking, or pan-searing, allowing you to enjoy salmon in your preferred cooking style.</li>
+                <li>Restaurant-Quality Dining: Experience the flavors of a gourmet seafood restaurant in the comfort of your own home with our exquisite salmon set.</li>
+            </ul>
+            <p class="text-dark">
+                In summary, our salmon set offers a delicious and nutritious dining experience that is sure to satisfy your seafood cravings and leave you feeling nourished and satisfied.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

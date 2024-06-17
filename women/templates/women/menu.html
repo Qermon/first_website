@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+.search-form-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+
+}
+
+.search-form input[type="search"] {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-form button {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+</style>
+
+<main>
+
+    <header class="site-header site-menu-header">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-10 col-12 mx-auto">
+                    <h1 class="text-white">Our Menus</h1>
+
+                    <strong class="text-white">Perfect for all Breakfast, Lunch and Dinner</strong>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="overlay"></div>
+    </header>
+
+    <form action="{% url 'search' %}" method="get" class="search-form-container">
+        <div class="search-form">
+            <input type="search" name="q" placeholder="Search Dishes" value="{{ q }}">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+    <section class="menu section-padding" id="breakfast-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="mb-lg-5 mb-4">Breakfast Menu</h2>
+                </div>
+
+                {% for dish in dishes %}
+                    {% if dish.category == 'breakfast' %}
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <div class="menu-image-wrap">
+                                    <a href="/{{ dish.name|slugify }}/">
+                                        <img src="{% static dish.image %}" class="img-fluid menu-image" alt="">
+                                    </a>
+
+                                </div>
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">
+                                        <a href="/{{ dish.name|slugify }}/" class="text-decoration-none text-dark">{{ dish.name }}</a>
+                                    </h4>
+                                    <div class="d-flex align-items-center ms-auto">
+                                        <span class="price-tag bg-white shadow-lg"><small>$</small>{{ dish.price }}</span>
+                                        <a href="{% url 'favorites_add' dish.id %}">
+                                            <i class="bi bi-bookmark heart-icon ms-2"
+                                               style="font-size: 2.5rem; cursor: pointer;"
+                                               onclick="toggleBookmark(this, '{{ dish.name|slugify }}')"
+                                               data-item-id="{{ dish.name|slugify }}"
+                                               data-is-favorite="{{ dish.is_favorite|yesno:'true,false' }}"></i>
+                                        </a>
+                                    </div>
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">{{ dish.rating }}/5</h6>
+                                        <div class="reviews-stars">
+                                            {% for i in "12345" %}
+                                                {% if forloop.counter <= dish.rating %}
+                                                    <i class="bi-star-fill reviews-icon"></i>
+                                                {% else %}
+                                                    <i class="bi-star reviews-icon"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <a href="/reviews/" class="reviews-text mb-0 ms-4">{{ dish.reviews_count }} Reviews</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="menu section-padding bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="mb-lg-5 mb-4">Lunch Menu</h2>
+                </div>
+                {% for dish in dishes %}
+                    {% if dish.category == 'lunch' %}
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <div class="menu-image-wrap">
+                                    <a href="/{{ dish.name|slugify }}/">
+                                        <img src="{% static dish.image %}" class="img-fluid menu-image" alt="{{ dish.name }}">
+                                    </a>
+                                </div>
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">
+                                        <a href="/{{ dish.name|slugify }}/" class="text-decoration-none text-dark">{{ dish.name }}</a>
+                                    </h4>
+                                    <div class="d-flex align-items-center ms-auto">
+                                        <span class="price-tag bg-white shadow-lg"><small>$</small>{{ dish.price }}</span>
+                                        <a href="{% url 'favorites_add' dish.id %}">
+                                            <i class="bi bi-bookmark heart-icon ms-2"
+                                               style="font-size: 2.5rem; cursor: pointer;"
+                                               onclick="toggleBookmark(this, '{{ dish.name|slugify }}')"
+                                               data-item-id="{{ dish.name|slugify }}"
+                                               data-is-favorite="{{ dish.is_favorite|yesno:'true,false' }}"></i>
+                                        </a>
+                                    </div>
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">{{ dish.rating }}/5</h6>
+                                        <div class="reviews-stars">
+                                            {% for i in "12345" %}
+                                                {% if forloop.counter <= dish.rating %}
+                                                    <i class="bi-star-fill reviews-icon"></i>
+                                                {% else %}
+                                                    <i class="bi-star reviews-icon"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <a href="/reviews/" class="reviews-text mb-0 ms-4">{{ dish.reviews_count }} Reviews</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <section class="menu section-padding">
+        <div class="container">
+            <div class="row">
+                <section class="menu section-padding" id="dinner-section">
+                    <div class="col-12">
+                        <h2 class="mb-lg-5 mb-4">Dinner Menu</h2>
+                    </div>
+                </section>
+
+                {% for dish in dishes %}
+                    {% if dish.category == 'dinner' %}
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <div class="menu-image-wrap">
+                                    <a href="/{{ dish.name|slugify }}/">
+                                        <img src="{% static dish.image %}" class="img-fluid menu-image" alt="{{ dish.name }}">
+                                    </a>
+                                </div>
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">
+                                        <a href="/{{ dish.name|slugify }}/" class="text-decoration-none text-dark">{{ dish.name }}</a>
+                                    </h4>
+                                    <div class="d-flex align-items-center ms-auto">
+                                        <span class="price-tag bg-white shadow-lg"><small>$</small>{{ dish.price }}</span>
+                                        <a href="{% url 'favorites_add' dish.id %}">
+                                            <i class="bi bi-bookmark heart-icon ms-2"
+                                               style="font-size: 2.5rem; cursor: pointer;"
+                                               onclick="toggleBookmark(this, '{{ dish.name|slugify }}')"
+                                               data-item-id="{{ dish.name|slugify }}"
+                                               data-is-favorite="{{ dish.is_favorite|yesno:'true,false' }}"></i>
+                                        </a>
+                                    </div>
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">{{ dish.rating }}/5</h6>
+                                        <div class="reviews-stars">
+                                            {% for i in "12345" %}
+                                                {% if forloop.counter <= dish.rating %}
+                                                    <i class="bi-star-fill reviews-icon"></i>
+                                                {% else %}
+                                                    <i class="bi-star reviews-icon"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <a href="/reviews/" class="reviews-text mb-0 ms-4">{{ dish.reviews_count }} Reviews</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}

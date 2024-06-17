@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="menu-button-wrap">
+    <a class="btn btn-primary btn-lg"  href="/menu/">Menu</a>
+    </div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="menu-thumb">
+            <div class="menu-image-wrap">
+                <img src={% static "images/dinner/keriliwi-c3mFafsFz2w-unsplash.jpg" %} class="img-fluid menu-image" alt="">
+
+            </div>
+
+            <div class="menu-info d-flex flex-wrap align-items-center">
+                <h4 class="mb-0">Premium Steak</h4>
+                <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>45</span>
+                <del class="ms-4"><small>$</small>150</del>
+                <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                    <h6 class="reviews-text mb-0 me-3">3/5</h6>
+                    <div class="reviews-stars">
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                    </div>
+                    <p class="reviews-text mb-0 ms-4">86 Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+        <div class="menu-description">
+            <h4 class="text-dark">Premium Steak</h4>
+            <p class="text-dark">
+                Our Bread & Steak Set offers the perfect combination of hearty steak and freshly baked bread, creating a satisfying and delicious meal. Ideal for those who enjoy the classic pairing of steak and bread, this set is sure to delight your taste buds. Here are some key features and benefits of our Bread & Steak Set:
+            </p>
+            </p>
+            <ul class="text-dark">
+                <li>Premium Steak: Enjoy a generous portion of tender and flavorful steak, cooked to your desired level of doneness.</li>
+                <li>Freshly Baked Bread: Accompanied by a selection of freshly baked bread, including crusty baguettes, garlic bread, and soft rolls.</li>
+                <li>Complementary Sides: Served with a variety of delicious sides such as mashed potatoes, roasted vegetables, and creamy coleslaw.</li>
+                <li>Customizable Options: Personalize your meal by choosing your favorite steak cut, bread varieties, and side dishes.</li>
+                <li>Satisfying Meal: Whether for lunch or dinner, our Bread & Steak Set provides a hearty and satisfying meal that is sure to please.</li>
+            </ul>
+            <p class="text-dark">
+                Treat yourself to the ultimate comfort food experience with our Premium Steak, where every bite is a delicious combination of flavors and textures.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

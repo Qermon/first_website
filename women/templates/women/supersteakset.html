@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="menu-button-wrap">
+    <a class="btn btn-primary btn-lg"  href="/menu/">Menu</a>
+    </div>
+<div class="row">
+    <div class="col-lg-5 col-md-6 col-12">
+        <div class="menu-thumb">
+            <img src={% static "images/lunch/louis-hansel-cH5IPjaAYyo-unsplash.jpg" %} class="img-fluid menu-image" alt="">
+            <div class="menu-info d-flex flex-wrap align-items-center">
+                <h4 class="mb-0">Super Steak Set</h4>
+                <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>32.75</span>
+                <del class="ms-4"><small>$</small>55</del>
+                <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                    <h6 class="reviews-text mb-0 me-3">4.2/5</h6>
+                    <div class="reviews-stars">
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                    </div>
+                    <p class="reviews-text mb-0 ms-4">66 Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-7 col-md-6 col-12 d-flex align-items-center">
+        <div class="menu-description">
+            <h4 class="text-dark">Super Steak Set</h4>
+            <p class="text-dark">
+                Indulge in our Super Steak Set, a premium dining experience featuring the finest cuts of steak cooked to perfection and accompanied by delicious sides. This set is perfect for steak enthusiasts and those seeking a luxurious meal. Here are some key features and benefits of our Super Steak Set:
+            </p>
+            <ul class="text-dark">
+                <li>Prime Steak Cuts: Our set includes prime cuts of beef, sourced from top-quality producers, ensuring exceptional flavor and tenderness.</li>
+                <li>Accompanying Sides: Enjoy a selection of mouthwatering sides such as roasted vegetables, mashed potatoes, and garlic butter mushrooms to complement your steak.</li>
+                <li>Crafted Perfection: Each steak is expertly seasoned and grilled to your desired level of doneness, resulting in a juicy and flavorful dining experience.</li>
+                <li>Gourmet Experience: Elevate your meal with our Super Steak Set, designed to provide a gourmet dining experience that will impress even the most discerning palates.</li>
+                <li>Celebratory Meal: Whether it's a special occasion or simply a craving for quality steak, our Super Steak Set is the perfect choice for a memorable meal.</li>
+            </ul>
+            <p class="text-dark">
+                Treat yourself to the ultimate steak experience with our Super Steak Set, where every bite is a celebration of flavor and indulgence.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

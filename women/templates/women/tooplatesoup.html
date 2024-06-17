@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="menu-button-wrap">
+        <a class="btn btn-primary btn-lg"  href="/menu/">Menu</a>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-12">
+            <div class="menu-thumb">
+                <div class="menu-image-wrap">
+                    <img src="{% static "images/lunch/farhad-ibrahimzade-MGKqxm6u2bc-unsplash.jpg" %}" class="img-fluid menu-image" alt="">
+                </div>
+                <div class="menu-info d-flex flex-wrap align-items-center">
+                    <h4 class="mb-0">Tooplate Soup</h4>
+                    <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>24.50</span>
+                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
+                        <div class="reviews-stars">
+                            <i class="bi-star-fill reviews-icon"></i>
+                            <i class="bi-star-fill reviews-icon"></i>
+                            <i class="bi-star-fill reviews-icon"></i>
+                            <i class="bi-star reviews-icon"></i>
+                            <i class="bi-star reviews-icon"></i>
+                        </div>
+                        <p class="reviews-text mb-0 ms-4">50 Reviews</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+            <div class="menu-description">
+                <h4 class="text-dark">Tooplate Soup</h4>
+                <p class="text-dark">
+                    Tooplate Soup is a versatile and dynamic website template designed to cater to a variety of online needs. With its sleek and modern design, Tooplate Soup offers a visually appealing layout that captivates visitors from the moment they arrive. Whether you're creating a blog, portfolio, e-commerce site, or business landing page, this template provides a solid foundation for your online presence. One of the standout features of Tooplate Soup is its customizable nature. Built with flexibility in mind, this template allows you to easily personalize every aspect of your website to suit your unique style and preferences. From color schemes and typography to page layouts and interactive elements, you have the freedom to create a website that truly reflects your brand identity.
+                </p>
+                <ul class="text-dark">
+                    <li>One of the standout features of Tooplate Soup is its customizable nature.</li>
+                    <li>Tooplate Soup also comes equipped with a range of useful components and features to enhance the user experience.</li>
+                    <li>These include image galleries, contact forms, social media integration, and more, all seamlessly integrated into the template's design.</li>
+                    <li>Whether you're a seasoned web developer or a newcomer to the world of online design, Tooplate Soup provides the tools you need to create a professional-looking website with ease.</li>
+                    <li>With its modern aesthetics, responsive design, and customizable features, this template is an ideal choice for anyone looking to make a memorable impression online.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="menu-button-wrap">
+    <a class="btn btn-primary btn-lg" href="/menu/">Menu</a>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="menu-thumb">
+            <div class="menu-image-wrap">
+                <img src={% static "images/lunch/4044651.jpg" %} class="img-fluid menu-image" alt="Dumplings">
+            </div>
+            <div class="menu-info d-flex flex-wrap align-items-center">
+                <h4 class="mb-0">Dumplings</h4>
+                <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>54.50</span>
+                <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                    <h6 class="reviews-text mb-0 me-3">5.0/5</h6>
+                    <div class="reviews-stars">
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star-fill reviews-icon"></i>
+                        <i class="bi-star reviews-icon"></i>
+                    </div>
+                    <p class="reviews-text mb-0 ms-4">50 Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-12 d-flex align-items-center">
+        <div class="menu-description">
+            <h4 class="text-dark">Dumplings</h4>
+            <p class="text-dark">
+                Our Dumplings are a delightful treat featuring tender dough filled with a savory mixture of seasoned meat or vegetables, served steamed or fried to perfection. Here's what makes our Dumplings special:
+            </p>
+            <ul class="text-dark">
+                <li>Savory Filling: Filled with a choice of seasoned meat or vegetables, wrapped in thin, tender dough.</li>
+                <li>Perfectly Cooked: Whether steamed for a soft texture or fried for a crispy exterior, our Dumplings are always delicious.</li>
+                <li>Flavorful Seasoning: Enhanced with a blend of traditional spices and herbs for an authentic taste.</li>
+                <li>Versatile Dish: Ideal as an appetizer, snack, or main course, accompanied by our signature dipping sauces.</li>
+                <li>Popular Choice: Loved by our customers for its taste, texture, and satisfying meal experience.</li>
+            </ul>
+            <p class="text-dark">
+                In summary, our Dumplings are a mouth-watering choice that combines savory filling with delicate dough, offering a delightful culinary experience suitable for any occasion.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
