@@ -18,15 +18,11 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return reverse_lazy('home')
 
+
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect('/login/')
 
-# class RegisterUser(CreateView):
-#     form_class = RegisterFormUser
-#     template_name = 'users/register.html'
-#     extra_context = {'title': 'Register'}
-#     success_url = reverse_lazy('users:login')
 
 def register(request):
     if request.method == "POST":

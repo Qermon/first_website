@@ -1,40 +1,47 @@
 import logging
-
-from django import template
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect, \
-    HttpResponsePermanentRedirect, HttpResponseForbidden
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
-from django.template.loader import render_to_string
-from django.template.defaultfilters import slugify
 from django.views.generic import ListView
-
 from .models import Review, Reservation, Dish, Favorites
 from .forms import ReviewForm, ReservationForm
 
 
-
-
-
 def index(request):
-    data = {
-        'category_selected': 'home'
-    }
+    """
+    Функція для відображення головної сторінки.
+    Отримує всі страви з бази даних та передає їх на шаблон для відображення.
+    """
     dishes = Dish.objects.all()
     return render(request, 'women/index.html', {'dishes': dishes})
 
+
 def about(request):
+    """
+    Функція для відображення сторінки "Про нас".
+    Встановлює категорію 'about' для вибору в меню та передає її в контекст шаблону.
+    """
     data = {
         'category_selected': 'about'
     }
     return render(request, 'women/about.html', context=data)
 
+
 def menu(request):
+
+    """
+    Функція для відображення меню.
+    Отримує всі страви з бази даних і передає їх на шаблон для відображення.
+    """
     dishes = Dish.objects.all()
     return render(request, 'women/menu.html', {'dishes': dishes})
 
+
 def news(request):
+    """
+    Функція для відображення сторінки новин.
+    Встановлює категорію 'news' для вибору в меню та передає її в контекст шаблону.
+    """
     data = {
         'category_selected': 'news'
     }
@@ -43,11 +50,20 @@ def news(request):
 
 logger = logging.getLogger(__name__)
 
+
 class Search(ListView):
+    """
+    Клас для реалізації пошуку страв за запитом користувача.
+    Повертає результати пошуку на основі введеного запиту.
+    """
     template_name = 'women/menu.html'
     context_object_name = 'dishes'
 
     def get_queryset(self):
+        """
+        Пошук страв у базі даних на основі введеного запиту.
+        Якщо запит є, повертає відповідні страви.
+        """
         query = self.request.GET.get('q')
         logger.info(f"Search query: {query}")
         if query:
@@ -56,11 +72,20 @@ class Search(ListView):
             return Dish.objects.none()
 
     def get_context_data(self, *, object_list=None, **kwargs):
+        """
+        Додає значення запиту в контекст для передачі в шаблон.
+        """
         context = super().get_context_data(**kwargs)
         context['q'] = self.request.GET.get('q', '')
         return context
 
+
 def reviews(request):
+    """
+    Функція для обробки відгуків користувачів.
+    Дозволяє додавати нові відгуки, а також видаляти існуючі.
+    Перевіряється авторизація користувача перед видаленням.
+    """
     if request.method == 'POST':
         if not request.user.is_authenticated:
             return redirect('unauthorized_page')
@@ -89,6 +114,11 @@ def reviews(request):
 
 
 def reservations(request):
+    """
+    Функція для обробки бронювання місць.
+    Дозволяє користувачам додавати нові бронювання або видаляти існуючі.
+    Перевіряється авторизація перед додаванням або видаленням.
+    """
     if request.method == 'POST':
         if not request.user.is_authenticated:
             return redirect('authorized_page')
@@ -116,14 +146,23 @@ def reservations(request):
     reservations = Reservation.objects.filter(user=request.user)
     return render(request, 'women/reservation.html', {'form': form, 'reservations': reservations})
 
+
 @login_required
 def favorites(request):
+    """
+    Функція для відображення улюблених страв користувача.
+    Потрібна авторизація для доступу до цієї сторінки.
+    """
     context = {'favorites': Favorites.objects.filter(user=request.user)}
     return render(request, 'women/favorites.html', context)
 
+
 @login_required
 def favorites_add(request, dish_id):
-
+    """
+    Функція для додавання страви до списку улюблених.
+    Перевіряється, чи вже є така страва у списку улюблених.
+    """
     dish = Dish.objects.get(id=dish_id)
     favorites = Favorites.objects.filter(user=request.user, dish=dish)
 
@@ -135,10 +174,17 @@ def favorites_add(request, dish_id):
         favorite.save()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+
 def favorites_delete(request, id):
+    """
+    Функція для видалення страви з улюблених.
+    Видаляється страва за вказаним id.
+    """
     favorite = Favorites.objects.get(id=id)
     favorite.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
 def non_reserv(request):
     return render(request, 'women/non_reserv.html')
 def unauthorized_page(request):
@@ -172,7 +218,6 @@ def broccoli_pasta(request):
 def meat_pie(request):
     return render(request, 'women/meat_pie.html')
 
-
 def premiumsteak(request):
     return render(request, 'women/premiumsteak.html')
 
@@ -198,15 +243,8 @@ def breadsteakset(request):
     return render(request, 'women/breadsteakset.html')
 
 
-
-
-
-
 def login(request):
     return HttpResponse("Авторизация")
-
-
-
 
 
 def page_not_found(request, exception):

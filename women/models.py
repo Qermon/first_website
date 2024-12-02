@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
+
 class Review(models.Model):
     message = models.TextField()
     image = models.ImageField(upload_to='reviews/', null=True, blank=True)
@@ -18,6 +19,7 @@ class Review(models.Model):
 
     def __str__(self):
         return self.message[:50]
+
 
 class Dish(models.Model):
     CATEGORY_CHOICES = [
@@ -37,24 +39,25 @@ class Dish(models.Model):
     def __str__(self):
         return self.name
 
+
 class Favorites(models.Model):
     dish = models.ForeignKey(Dish, on_delete=models.CASCADE, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/')
     price = models.DecimalField(max_digits=6, decimal_places=2)
     reviews_count = models.IntegerField(default=0)
+
     def __str__(self):
         return f'Favorites for {self.user.username} | Dish {self.name}'
+
 
 class Reservation(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=False, null=False)
     date = models.DateField(blank=False)
     time = models.TimeField(blank=False)
     table_number = models.PositiveIntegerField(blank=False)
+
     def __str__(self):
         return f"Reservation for {self.user} on {self.date} at {self.time}, Table {self.table_number}"
 
 
-
-class Women(models.Model):
-    name = models.CharField(max_length=256)
