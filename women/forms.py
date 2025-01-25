@@ -22,8 +22,6 @@ class ReviewForm(forms.ModelForm):
         }
 
 
-
-
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation

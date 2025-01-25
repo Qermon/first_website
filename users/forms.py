@@ -52,8 +52,6 @@ class RegisterFormUser(forms.ModelForm):
         return cleaned_data
 
 
-
-
 class ProfileUserForm(forms.ModelForm):
     username = forms.CharField(
         label='Login',
@@ -76,6 +74,7 @@ class ProfileUserForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = ['username', 'email', 'first_name', 'last_name']
+
 
 class UserPasswordChangeForm(PasswordChangeForm):
     old_password = forms.CharField(

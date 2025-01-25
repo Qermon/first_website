@@ -8,19 +8,11 @@ from .forms import ReviewForm, ReservationForm
 
 
 def index(request):
-    """
-    Функція для відображення головної сторінки.
-    Отримує всі страви з бази даних та передає їх на шаблон для відображення.
-    """
     dishes = Dish.objects.all()
     return render(request, 'women/index.html', {'dishes': dishes})
 
 
 def about(request):
-    """
-    Функція для відображення сторінки "Про нас".
-    Встановлює категорію 'about' для вибору в меню та передає її в контекст шаблону.
-    """
     data = {
         'category_selected': 'about'
     }
@@ -28,20 +20,11 @@ def about(request):
 
 
 def menu(request):
-
-    """
-    Функція для відображення меню.
-    Отримує всі страви з бази даних і передає їх на шаблон для відображення.
-    """
     dishes = Dish.objects.all()
     return render(request, 'women/menu.html', {'dishes': dishes})
 
 
 def news(request):
-    """
-    Функція для відображення сторінки новин.
-    Встановлює категорію 'news' для вибору в меню та передає її в контекст шаблону.
-    """
     data = {
         'category_selected': 'news'
     }
@@ -52,18 +35,10 @@ logger = logging.getLogger(__name__)
 
 
 class Search(ListView):
-    """
-    Клас для реалізації пошуку страв за запитом користувача.
-    Повертає результати пошуку на основі введеного запиту.
-    """
     template_name = 'women/menu.html'
     context_object_name = 'dishes'
 
     def get_queryset(self):
-        """
-        Пошук страв у базі даних на основі введеного запиту.
-        Якщо запит є, повертає відповідні страви.
-        """
         query = self.request.GET.get('q')
         logger.info(f"Search query: {query}")
         if query:
@@ -72,20 +47,12 @@ class Search(ListView):
             return Dish.objects.none()
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        """
-        Додає значення запиту в контекст для передачі в шаблон.
-        """
         context = super().get_context_data(**kwargs)
         context['q'] = self.request.GET.get('q', '')
         return context
 
 
 def reviews(request):
-    """
-    Функція для обробки відгуків користувачів.
-    Дозволяє додавати нові відгуки, а також видаляти існуючі.
-    Перевіряється авторизація користувача перед видаленням.
-    """
     if request.method == 'POST':
         if not request.user.is_authenticated:
             return redirect('unauthorized_page')
@@ -114,11 +81,6 @@ def reviews(request):
 
 
 def reservations(request):
-    """
-    Функція для обробки бронювання місць.
-    Дозволяє користувачам додавати нові бронювання або видаляти існуючі.
-    Перевіряється авторизація перед додаванням або видаленням.
-    """
     if request.method == 'POST':
         if not request.user.is_authenticated:
             return redirect('authorized_page')
@@ -149,20 +111,12 @@ def reservations(request):
 
 @login_required
 def favorites(request):
-    """
-    Функція для відображення улюблених страв користувача.
-    Потрібна авторизація для доступу до цієї сторінки.
-    """
     context = {'favorites': Favorites.objects.filter(user=request.user)}
     return render(request, 'women/favorites.html', context)
 
 
 @login_required
 def favorites_add(request, dish_id):
-    """
-    Функція для додавання страви до списку улюблених.
-    Перевіряється, чи вже є така страва у списку улюблених.
-    """
     dish = Dish.objects.get(id=dish_id)
     favorites = Favorites.objects.filter(user=request.user, dish=dish)
 
@@ -176,10 +130,6 @@ def favorites_add(request, dish_id):
 
 
 def favorites_delete(request, id):
-    """
-    Функція для видалення страви з улюблених.
-    Видаляється страва за вказаним id.
-    """
     favorite = Favorites.objects.get(id=id)
     favorite.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -187,57 +137,91 @@ def favorites_delete(request, id):
 
 def non_reserv(request):
     return render(request, 'women/non_reserv.html')
+
+
 def unauthorized_page(request):
     return render(request, 'women/unauthorized_page.html')
+
+
 def success_page_reservation(request):
     return render(request, 'women/success_page_reservation.html')
+
+
 def success_page(request):
     return render(request, 'women/success_page.html')
+
 
 def morningfresh(request):
     return render(request, 'women/morningfresh.html')
 
+
 def tooplatesoup(request):
     return render(request, 'women/tooplatesoup.html')
+
+
 def newsdetail(request):
     return render(request, 'women/news-detail.html')
+
+
 def cheesy_chicken(request):
     return render(request, 'women/cheesy_chicken.html')
+
+
 def hot_pizza(request):
     return render(request, 'women/hot_pizza.html')
+
+
 def fried_chicken(request):
     return render(request, 'women/fried_chicken.html')
+
+
 def spaghetti(request):
     return render(request, 'women/spaghetti.html')
+
+
 def dumplings(request):
     return render(request, 'women/dumplings.html')
+
+
 def kebab(request):
     return render(request, 'women/kebab.html')
+
+
 def broccoli_pasta(request):
     return render(request, 'women/broccoli_pasta.html')
+
+
 def meat_pie(request):
     return render(request, 'women/meat_pie.html')
+
 
 def premiumsteak(request):
     return render(request, 'women/premiumsteak.html')
 
+
 def safoodset(request):
     return render(request, 'women/safoodset.html')
+
 
 def burgerset(request):
     return render(request, 'women/burgerset.html')
 
+
 def healthysoup(request):
     return render(request, 'women/healthysoup.html')
+
 
 def bakedcreamy(request):
     return render(request, 'women/bakedcreamy.html')
 
+
 def salmonset(request):
     return render(request, 'women/salmonset.html')
 
+
 def supersteakset(request):
     return render(request, 'women/supersteakset.html')
+
 
 def breadsteakset(request):
     return render(request, 'women/breadsteakset.html')
